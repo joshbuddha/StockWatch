@@ -8,9 +8,16 @@
 
 import Foundation
 
-struct DataLoader {
+typealias StocksCompletion = ([Stock])->()
+
+class DataLoader {
     
-    mutating func loadStocks() {
+    var stocks: [Stock] = []
+    
+    func loadStocks(completion: @escaping StocksCompletion) {
+        
+        stocks.removeAll(keepingCapacity: false)
+        
         guard let url = URL(string: Constants.StocksUrl) else {
             return
         }
@@ -21,17 +28,24 @@ struct DataLoader {
                 print(error?.localizedDescription ?? "Response Error")
                 return
             }
-            
+ 
             do {
                 
                 let decoder = JSONDecoder()
                 let stockModel = try decoder.decode([Stock].self, from: dataResponse)
-                print("stock Model ", stockModel)
+                
+                for stock in stockModel {
+                    self.stocks.append(stock)
+                }
+                
+                completion(self.stocks)
                 
             } catch let parsingError {
                 print("Error", parsingError)
             }
         }
+        
         task.resume()
+        
     }
 }

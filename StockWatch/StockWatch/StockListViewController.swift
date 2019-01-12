@@ -10,16 +10,15 @@ import UIKit
 
 class StockListViewController: UIViewController {
     
-    var dataLoader = DataLoader()
+    let dataLoader = DataLoader()
+    var stockList: [Stock] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        dataLoader.loadStocks() { [unowned self] stocks in
+            self.stockList = stocks
+            print("stock load ", self.stockList)
+        }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        dataLoader.loadStocks()
-    }
-
 }
