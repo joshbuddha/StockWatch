@@ -11,7 +11,7 @@ import Foundation
 struct Stock: Decodable {
     
     var symbol: String?
-    var companyName: String?
+    var latestPrice: Float?
     
 }
 

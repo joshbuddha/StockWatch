@@ -10,4 +10,5 @@ import Foundation
 
 struct Constants {
     public static let StocksUrl = "https://api.iextrading.com/1.0/stock/market/collection/tag?collectionName=Computer%20Hardware"
+    public static let stockCellId = "stockCell"
 }
