@@ -10,7 +10,8 @@ import UIKit
 
 class StockDetailViewController: UIViewController {
     
-    var stockDetails: Stock?
+    var stockDetailViewModel: StockDetailViewModel?
+    
     @IBOutlet weak var companyLabel: UILabel!
     @IBOutlet weak var symbolLabel: UILabel!
     @IBOutlet weak var latestPriceLabel: UILabel!
@@ -24,12 +25,13 @@ class StockDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        companyLabel.text = Constants.DCompany + ": \(stockDetails?.companyName ?? "")"
-        symbolLabel.text = Constants.DSymbol + ": \(stockDetails?.symbol ?? "")"
-        latestPriceLabel.text = Constants.DPrice + ": \(stockDetails?.latestPrice?.description ?? "")"
-        exchangeLabel.text = Constants.DExchange + ": \(stockDetails?.primaryExchange ?? "")"
-        sectorLabel.text = Constants.DSector + ": \(stockDetails?.sector ?? "")"
-        ytdLabel.text = Constants.DYTDChange + ": \(stockDetails?.ytdChange?.description ?? "")"
+        companyLabel.text = stockDetailViewModel?.company
+        symbolLabel.text = stockDetailViewModel?.symbol
+        latestPriceLabel.text = stockDetailViewModel?.price
+        exchangeLabel.text = stockDetailViewModel?.exchange
+        sectorLabel.text = stockDetailViewModel?.sector
+        ytdLabel.text = stockDetailViewModel?.ytd
+        
     }
     
 }

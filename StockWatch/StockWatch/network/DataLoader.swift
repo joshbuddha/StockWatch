@@ -12,13 +12,11 @@ typealias StocksCompletion = ([Stock])->()
 
 class DataLoader {
     
-    var stocks: [Stock] = []
+    private(set) var stocks: [Stock] = []
     
-    func loadStocks(completion: @escaping StocksCompletion) {
+    func loadStocks(urlString: String, completion: @escaping StocksCompletion) {
         
-        stocks.removeAll(keepingCapacity: false)
-        
-        guard let url = URL(string: Constants.StocksUrl) else {
+        guard let url = URL(string: urlString) else {
             return
         }
         
@@ -32,11 +30,7 @@ class DataLoader {
             do {
                 
                 let decoder = JSONDecoder()
-                let stockModel = try decoder.decode([Stock].self, from: dataResponse)
-                
-                for stock in stockModel {
-                    self.stocks.append(stock)
-                }
+                self.stocks = try decoder.decode([Stock].self, from: dataResponse)
                 
                 completion(self.stocks)
                 

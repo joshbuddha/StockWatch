@@ -10,12 +10,12 @@ import Foundation
 
 struct Stock: Decodable {
     
-    var symbol: String?
-    var latestPrice: Float?
-    var companyName: String?
-    var primaryExchange: String?
-    var sector: String?
-    var ytdChange: Float?
+    let symbol: String?
+    let latestPrice: Float?
+    let companyName: String?
+    let primaryExchange: String?
+    let sector: String?
+    let ytdChange: Float?
     
 }
 

@@ -11,45 +11,45 @@ import UIKit
 class StockListViewController: UIViewController {
     
     let dataLoader = DataLoader()
-    var stockList: [Stock] = []
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        dataLoader.loadStocks() { [unowned self] stocks in
-            
-            self.stockList = stocks
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        dataLoader.loadStocks(urlString: Constants.stocksUrl) { [unowned self] stocks in
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-
+            
         }
     }
 }
 
 extension StockListViewController: UITableViewDelegate, UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stockList.count
+        return dataLoader.stocks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let errorCell: UITableViewCell = UITableViewCell()
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.StockCellId, for: indexPath) as? StockListTableViewCell else {
-            return errorCell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.stockCellId, for: indexPath)
+        guard let stockCell = cell as? StockListTableViewCell else { return cell }
+        stockCell.setupCell(with: dataLoader.stocks[indexPath.row])
         
-        cell.setupCell(stockList[indexPath.row])
-        
-        return cell
+        return stockCell
+
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailController = UIStoryboard(name: Constants.MainStoryBoardId,
-                                               bundle: nil).instantiateViewController(withIdentifier: Constants.DetailId) as? StockDetailViewController {
-            detailController.stockDetails = stockList[indexPath.row]
+        if let detailController = UIStoryboard(name: Constants.mainStoryBoardId,
+                                               bundle: nil).instantiateViewController(withIdentifier: Constants.detailId) as? StockDetailViewController {
+            let detailViewModel = StockDetailViewModel(model: dataLoader.stocks[indexPath.row])
+            detailController.stockDetailViewModel = detailViewModel
             if let navigator = navigationController {
                 navigator.pushViewController(detailController, animated: true)
             }

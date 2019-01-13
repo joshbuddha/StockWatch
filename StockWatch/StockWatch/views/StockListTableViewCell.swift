@@ -17,10 +17,10 @@ class StockListTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setupCell(_ data: Stock) {
+    func setupCell(with stock: Stock) {
         
-        guard let symbol = data.symbol else { return }
-        guard let price = data.latestPrice else { return }
+        guard let symbol = stock.symbol else { return }
+        guard let price = stock.latestPrice else { return }
         
         symbolLabel?.text = symbol
         priceLabel?.text = String(price)
