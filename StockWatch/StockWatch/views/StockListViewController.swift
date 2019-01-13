@@ -19,13 +19,12 @@ class StockListViewController: UIViewController {
 
         dataLoader.loadStocks() { [unowned self] stocks in
             
-            self.stockList = stocks.shuffled()
+            self.stockList = stocks
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
-            //print("stock load ", self.stockList)
+
         }
     }
 }
@@ -38,29 +37,24 @@ extension StockListViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let errorCell: UITableViewCell = UITableViewCell()
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.stockCellId, for: indexPath) as? StockListTableViewCell else {
-            return errorCell
-        }
-        guard let symbol = stockList[indexPath.row].symbol else {
-            return errorCell
-        }
-        guard let price = stockList[indexPath.row].latestPrice else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.StockCellId, for: indexPath) as? StockListTableViewCell else {
             return errorCell
         }
         
-        cell.symbolLabel?.text = symbol
-        cell.priceLabel?.text = String(price)
+        cell.setupCell(stockList[indexPath.row])
         
         return cell
     }
-}
-/*
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(forIndexPath: indexPath) as MovieCell
-    let movie = movies[indexPath.row]
-    let viewModel = MovieViewModel(model: movie)
-    cell.setUpWith(viewModel)
-    return cell
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let detailController = UIStoryboard(name: Constants.MainStoryBoardId,
+                                               bundle: nil).instantiateViewController(withIdentifier: Constants.DetailId) as? StockDetailViewController {
+            detailController.stockDetails = stockList[indexPath.row]
+            if let navigator = navigationController {
+                navigator.pushViewController(detailController, animated: true)
+            }
+        }
+    }
 }
- */
+
+

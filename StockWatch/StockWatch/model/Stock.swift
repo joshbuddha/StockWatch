@@ -12,6 +12,10 @@ struct Stock: Decodable {
     
     var symbol: String?
     var latestPrice: Float?
+    var companyName: String?
+    var primaryExchange: String?
+    var sector: String?
+    var ytdChange: Float?
     
 }
 

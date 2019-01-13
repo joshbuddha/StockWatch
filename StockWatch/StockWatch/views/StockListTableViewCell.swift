@@ -16,11 +16,15 @@ class StockListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func setupCell(_ data: Stock) {
+        
+        guard let symbol = data.symbol else { return }
+        guard let price = data.latestPrice else { return }
+        
+        symbolLabel?.text = symbol
+        priceLabel?.text = String(price)
+        
     }
 
 }
