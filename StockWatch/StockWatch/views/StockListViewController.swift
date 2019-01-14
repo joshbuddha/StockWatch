@@ -18,7 +18,10 @@ class StockListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dataLoader.loadStocks(urlString: Constants.stocksUrl) { [unowned self] stocks in
+        
+        guard let onlineUrl = URL(string: Constants.stocksUrl) else { return }
+        
+        dataLoader.loadStocks(url: onlineUrl) { [unowned self] stocks in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }

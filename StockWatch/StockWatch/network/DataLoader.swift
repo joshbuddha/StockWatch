@@ -14,12 +14,8 @@ class DataLoader {
     
     private(set) var stocks: [Stock] = []
     
-    func loadStocks(urlString: String, completion: @escaping StocksCompletion) {
-        
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        
+    func loadStocks(url: URL, completion: @escaping StocksCompletion) {
+                
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard let dataResponse = data, error == nil else {
@@ -35,7 +31,7 @@ class DataLoader {
                 completion(self.stocks)
                 
             } catch let parsingError {
-                print("Error", parsingError)
+                print("Parsing Error", parsingError)
             }
         }
         
