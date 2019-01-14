@@ -10,20 +10,44 @@ import Foundation
 
 struct StockDetailViewModel {
     
-    let company: String?
-    let symbol: String?
-    let price: String?
-    let exchange: String?
-    let sector: String?
-    let ytd: String?
+    private let stock: Stock
+    
+    var company: String {
+        guard let name = stock.companyName else { return "\(Constants.Details.company) Not Found." }
+        return "\(Constants.Details.company): \(name)"
+    }
+    
+    var symbol: String {
+        guard let symbol = stock.symbol else { return "\(Constants.Details.symbol) Not Found." }
+        return "\(Constants.Details.symbol): \(symbol)"
+    }
+    
+    var price: String {
+        guard let price = stock.latestPrice else { return "\(Constants.Details.price) Not Found." }
+        return "\(Constants.Details.price): \(price)"
+    }
+    
+    var exchange: String {
+        guard let exchange = stock.primaryExchange else { return "\(Constants.Details.exchange) Not Found." }
+        return "\(Constants.Details.exchange): \(exchange)"
+    }
+    
+    var sector: String {
+        guard let sector = stock.sector else { return "\(Constants.Details.sector) Not Found." }
+        return "\(Constants.Details.sector): \(sector)"
+    }
+    
+    var ytd: String {
+        guard let ytd = stock.ytdChange else { return "\(Constants.Details.ytdChange) Not Found." }
+        return "\(Constants.Details.ytdChange): \(ytd)"
+    }
     
     init(model: Stock) {
-        self.company = model.companyName
-        self.symbol = model.symbol
-        self.price = model.latestPrice?.description
-        self.exchange = model.primaryExchange
-        self.sector = model.sector
-        self.ytd = model.ytdChange?.description
+        stock = model
     }
+    
 }
+
+
+
 

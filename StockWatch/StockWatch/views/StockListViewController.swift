@@ -27,6 +27,17 @@ class StockListViewController: UIViewController {
             
         }
     }
+    
+    func presentStockDetailView(with stock: Stock) {
+        guard let detailController = UIStoryboard(name: Constants.mainStoryBoardId,
+                                               bundle: nil).instantiateViewController(withIdentifier: Constants.detailId) as? StockDetailViewController else {
+                                                return
+        }
+
+        let detailViewModel = StockDetailViewModel(model: stock)
+        detailController.stockDetailViewModel = detailViewModel
+        navigationController?.pushViewController(detailController, animated: true)
+    }
 }
 
 extension StockListViewController: UITableViewDelegate, UITableViewDataSource{
@@ -46,14 +57,9 @@ extension StockListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailController = UIStoryboard(name: Constants.mainStoryBoardId,
-                                               bundle: nil).instantiateViewController(withIdentifier: Constants.detailId) as? StockDetailViewController {
-            let detailViewModel = StockDetailViewModel(model: dataLoader.stocks[indexPath.row])
-            detailController.stockDetailViewModel = detailViewModel
-            if let navigator = navigationController {
-                navigator.pushViewController(detailController, animated: true)
-            }
-        }
+                
+        presentStockDetailView(with: dataLoader.stocks[indexPath.row])
+
     }
 }
 
