@@ -18,15 +18,13 @@ class StockListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         dataLoader.loadStocks(urlString: Constants.stocksUrl) { [unowned self] stocks in
-            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
-            
         }
     }
+
     
     func presentStockDetailView(with stock: Stock) {
         guard let detailController = UIStoryboard(name: Constants.mainStoryBoardId,

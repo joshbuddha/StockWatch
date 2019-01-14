@@ -18,7 +18,19 @@
 		4431796321EAADE700B56D55 /* StockListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431796221EAADE700B56D55 /* StockListTableViewCell.swift */; };
 		4431796B21EAFC5D00B56D55 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431796A21EAFC5D00B56D55 /* StockDetailViewController.swift */; };
 		4431796E21EBE66400B56D55 /* StockDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431796D21EBE66400B56D55 /* StockDetailViewModel.swift */; };
+		4431797621EC4F3200B56D55 /* StockWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431797521EC4F3200B56D55 /* StockWatchTests.swift */; };
+		4431798021ED06FD00B56D55 /* DataLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431797F21ED06FD00B56D55 /* DataLoaderTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4431797821EC4F3200B56D55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4431793921EA891000B56D55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4431794021EA891000B56D55;
+			remoteInfo = StockWatch;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4431794121EA891000B56D55 /* StockWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,10 +46,21 @@
 		4431796221EAADE700B56D55 /* StockListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListTableViewCell.swift; sourceTree = "<group>"; };
 		4431796A21EAFC5D00B56D55 /* StockDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		4431796D21EBE66400B56D55 /* StockDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockDetailViewModel.swift; sourceTree = "<group>"; };
+		4431797321EC4F3200B56D55 /* StockWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4431797521EC4F3200B56D55 /* StockWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchTests.swift; sourceTree = "<group>"; };
+		4431797721EC4F3200B56D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4431797F21ED06FD00B56D55 /* DataLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4431793E21EA891000B56D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4431797021EC4F3200B56D55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				4431794321EA891000B56D55 /* StockWatch */,
+				4431797421EC4F3200B56D55 /* StockWatchTests */,
 				4431794221EA891000B56D55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				4431794121EA891000B56D55 /* StockWatch.app */,
+				4431797321EC4F3200B56D55 /* StockWatchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +147,16 @@
 			path = viewmodel;
 			sourceTree = "<group>";
 		};
+		4431797421EC4F3200B56D55 /* StockWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				4431797521EC4F3200B56D55 /* StockWatchTests.swift */,
+				4431797F21ED06FD00B56D55 /* DataLoaderTests.swift */,
+				4431797721EC4F3200B56D55 /* Info.plist */,
+			);
+			path = StockWatchTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,6 +177,24 @@
 			productReference = 4431794121EA891000B56D55 /* StockWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4431797221EC4F3200B56D55 /* StockWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4431797A21EC4F3200B56D55 /* Build configuration list for PBXNativeTarget "StockWatchTests" */;
+			buildPhases = (
+				4431796F21EC4F3200B56D55 /* Sources */,
+				4431797021EC4F3200B56D55 /* Frameworks */,
+				4431797121EC4F3200B56D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4431797921EC4F3200B56D55 /* PBXTargetDependency */,
+			);
+			name = StockWatchTests;
+			productName = StockWatchTests;
+			productReference = 4431797321EC4F3200B56D55 /* StockWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -154,6 +207,10 @@
 				TargetAttributes = {
 					4431794021EA891000B56D55 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					4431797221EC4F3200B56D55 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4431794021EA891000B56D55;
 					};
 				};
 			};
@@ -171,6 +228,7 @@
 			projectRoot = "";
 			targets = (
 				4431794021EA891000B56D55 /* StockWatch */,
+				4431797221EC4F3200B56D55 /* StockWatchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +241,13 @@
 				4431794F21EA891200B56D55 /* LaunchScreen.storyboard in Resources */,
 				4431794C21EA891200B56D55 /* Assets.xcassets in Resources */,
 				4431794A21EA891000B56D55 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4431797121EC4F3200B56D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +269,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4431796F21EC4F3200B56D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4431798021ED06FD00B56D55 /* DataLoaderTests.swift in Sources */,
+				4431797621EC4F3200B56D55 /* StockWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4431797921EC4F3200B56D55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4431794021EA891000B56D55 /* StockWatch */;
+			targetProxy = 4431797821EC4F3200B56D55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4431794821EA891000B56D55 /* Main.storyboard */ = {
@@ -378,6 +460,46 @@
 			};
 			name = Release;
 		};
+		4431797B21EC4F3200B56D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN558ZNJ2W;
+				INFOPLIST_FILE = StockWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.jetstream.StockWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockWatch.app/StockWatch";
+			};
+			name = Debug;
+		};
+		4431797C21EC4F3200B56D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN558ZNJ2W;
+				INFOPLIST_FILE = StockWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.jetstream.StockWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StockWatch.app/StockWatch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -395,6 +517,15 @@
 			buildConfigurations = (
 				4431795421EA891200B56D55 /* Debug */,
 				4431795521EA891200B56D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4431797A21EC4F3200B56D55 /* Build configuration list for PBXNativeTarget "StockWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4431797B21EC4F3200B56D55 /* Debug */,
+				4431797C21EC4F3200B56D55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
