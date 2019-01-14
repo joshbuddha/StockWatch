@@ -23,7 +23,10 @@ class StockDetailViewModelTests: XCTestCase {
         
         let promise = expectation(description: "Local valid json should load successfully for view model test.")
 
-        guard let localUrl = Bundle(for: type(of: self)).url(forResource: "validDataTest", withExtension: "json") else { return }
+        guard let localUrl = Bundle(for: type(of: self)).url(forResource: "validDataTest", withExtension: "json") else {
+            XCTFail("local valid url fail")
+            return
+        }
         
         dataLoader.loadStocks(url: localUrl) { stocks in
             promise.fulfill()
@@ -41,7 +44,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: nil, latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let symbolString = testViewModel.symbol
-        XCTAssertEqual(symbolString, Constants.Details.symbol + " Not Found.", "Confirm nil Stock symbol value will present not found string")
+        XCTAssertEqual(symbolString, "Symbol Not Found.", "Confirm nil Stock symbol value will present not found string")
         
     }
     
@@ -50,7 +53,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: "AAPL", latestPrice: nil, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let priceString = testViewModel.price
-        XCTAssertEqual(priceString, Constants.Details.price + " Not Found.", "Confirm nil Stock price value will present not found string")
+        XCTAssertEqual(priceString, "Latest Price Not Found.", "Confirm nil Stock price value will present not found string")
         
     }
     
@@ -59,7 +62,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: "AAPL", latestPrice: 9.33, companyName: nil, primaryExchange: "street", sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let companyString = testViewModel.company
-        XCTAssertEqual(companyString, Constants.Details.company + " Not Found.", "Confirm nil Stock company value will present not found string")
+        XCTAssertEqual(companyString, "Company Not Found.", "Confirm nil Stock company value will present not found string")
         
     }
     
@@ -68,7 +71,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: "AAPL", latestPrice: 9.33, companyName: "safeway", primaryExchange: nil, sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let exchangeString = testViewModel.exchange
-        XCTAssertEqual(exchangeString, Constants.Details.exchange + " Not Found.", "Confirm nil Stock exchange value will present not found string")
+        XCTAssertEqual(exchangeString, "Primary Exchange Not Found.", "Confirm nil Stock exchange value will present not found string")
         
     }
     
@@ -77,7 +80,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: "AAPL", latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: nil, ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let sectorString = testViewModel.sector
-        XCTAssertEqual(sectorString, Constants.Details.sector + " Not Found.", "Confirm nil Stock sector value will present not found string")
+        XCTAssertEqual(sectorString, "Sector Not Found.", "Confirm nil Stock sector value will present not found string")
         
     }
     
@@ -86,7 +89,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: "AAPL", latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: nil)
         let testViewModel = StockDetailViewModel(model: stockA)
         let ytdString = testViewModel.ytd
-        XCTAssertEqual(ytdString, Constants.Details.ytdChange + " Not Found.", "Confirm nil Stock ytd value will present not found string")
+        XCTAssertEqual(ytdString, "YTD Change Not Found.", "Confirm nil Stock ytd value will present not found string")
         
     }
 }
