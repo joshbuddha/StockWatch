@@ -50,20 +50,5 @@ class StockTests: XCTestCase {
         
     }
     
-    func testStockStructPropertyTypes() {
-        let stockA = Stock(symbol: "AAPL", latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: 999.0)
-        
-        XCTAssertTrue(stockA.symbol is String)
-        XCTAssertTrue(stockA.latestPrice is Float)
-        XCTAssertTrue(stockA.companyName is String)
-        XCTAssertTrue(stockA.primaryExchange is String)
-        XCTAssertTrue(stockA.sector is String)
-        XCTAssertTrue(stockA.ytdChange is Float)
-        
-    }
-    
-
-    
-    
     
 }

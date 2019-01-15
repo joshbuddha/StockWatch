@@ -57,7 +57,6 @@ class DataLoaderTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 2, handler: nil)
-        XCTAssertNotEqual(dataLoader.stocks.count, 0, "Stocks array should not be 0 after loading local valid json.")
         XCTAssertEqual(dataLoader.stocks.count, 2, "Stocks array has 2 valid elements")
         XCTAssertEqual(dataLoader.stocks[0].symbol, "UAVS", "First stock symbol in array is UAVS")
         
@@ -94,7 +93,6 @@ class DataLoaderTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 2, handler: nil)
-        XCTAssertNotEqual(dataLoader.stocks.count, 0, "Stocks array should not be 0 after loading local valid json.")
         XCTAssertEqual(dataLoader.stocks.count, 2, "Stocks array has 2 valid elements")
         XCTAssertEqual(dataLoader.stocks[0].symbol, nil, "First stock symbol is not present")
         

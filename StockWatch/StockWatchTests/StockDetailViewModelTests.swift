@@ -39,12 +39,35 @@ class StockDetailViewModelTests: XCTestCase {
         
     }
     
+    func testSuccessForEachPropertyInViewModel() {
+        let promise = expectation(description: "Local valid json should present valid view model for all properties")
+        
+        guard let localUrl = Bundle(for: type(of: self)).url(forResource: "validDataTest", withExtension: "json") else {
+            XCTFail("local valid url fail")
+            return
+        }
+        
+        dataLoader.loadStocks(url: localUrl) { stocks in
+            promise.fulfill()
+        }
+        
+        waitForExpectations(timeout: 2, handler: nil)
+        
+        let testViewModel = StockDetailViewModel(model: dataLoader.stocks[0])
+        XCTAssertEqual(testViewModel.company, "Company: AgEagle Aerial Systems Inc.", "Confirm company in view model")
+        XCTAssertEqual(testViewModel.symbol, "Symbol: UAVS", "Confirm symbol in view model")
+        XCTAssertEqual(testViewModel.price, "Latest Price: 0.502413", "Confirm price in view model")
+        XCTAssertEqual(testViewModel.exchange, "Primary Exchange: NYSE American", "Confirm exchange in view model")
+        XCTAssertEqual(testViewModel.sector, "Sector: Technology", "Confirm sector in view model")
+        XCTAssertEqual(testViewModel.ytd, "YTD Change: -0.079625554", "Confirm ytd in view model")
+    }
+    
     func testConfirmOptionalSymbolValueInViewModel() {
         
         let stockA = Stock(symbol: nil, latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let symbolString = testViewModel.symbol
-        XCTAssertEqual(symbolString, "Symbol Not Found.", "Confirm nil Stock symbol value will present not found string")
+        XCTAssertEqual(symbolString, "UAVS", "Confirm nil Stock symbol value will present not found string")
         
     }
     

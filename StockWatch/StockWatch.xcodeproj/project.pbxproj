@@ -27,10 +27,18 @@
 		4431799C21ED392A00B56D55 /* badJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = 4431799B21ED392A00B56D55 /* badJSON.json */; };
 		4431799E21ED3FAB00B56D55 /* ConstantsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431799D21ED3FAB00B56D55 /* ConstantsTests.swift */; };
 		443179A021ED423400B56D55 /* StockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4431799F21ED423400B56D55 /* StockTests.swift */; };
+		443179A821ED4E0800B56D55 /* StockWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443179A721ED4E0800B56D55 /* StockWatchUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		4431797821EC4F3200B56D55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4431793921EA891000B56D55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4431794021EA891000B56D55;
+			remoteInfo = StockWatch;
+		};
+		443179AA21ED4E0800B56D55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4431793921EA891000B56D55 /* Project object */;
 			proxyType = 1;
@@ -64,6 +72,9 @@
 		4431799B21ED392A00B56D55 /* badJSON.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = badJSON.json; sourceTree = "<group>"; };
 		4431799D21ED3FAB00B56D55 /* ConstantsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsTests.swift; sourceTree = "<group>"; };
 		4431799F21ED423400B56D55 /* StockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTests.swift; sourceTree = "<group>"; };
+		443179A521ED4E0700B56D55 /* StockWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		443179A721ED4E0800B56D55 /* StockWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockWatchUITests.swift; sourceTree = "<group>"; };
+		443179A921ED4E0800B56D55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		443179A221ED4E0700B56D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +107,7 @@
 			children = (
 				4431794321EA891000B56D55 /* StockWatch */,
 				4431797421EC4F3200B56D55 /* StockWatchTests */,
+				443179A621ED4E0800B56D55 /* StockWatchUITests */,
 				4431794221EA891000B56D55 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +117,7 @@
 			children = (
 				4431794121EA891000B56D55 /* StockWatch.app */,
 				4431797321EC4F3200B56D55 /* StockWatchTests.xctest */,
+				443179A521ED4E0700B56D55 /* StockWatchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +206,15 @@
 			path = json;
 			sourceTree = "<group>";
 		};
+		443179A621ED4E0800B56D55 /* StockWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				443179A721ED4E0800B56D55 /* StockWatchUITests.swift */,
+				443179A921ED4E0800B56D55 /* Info.plist */,
+			);
+			path = StockWatchUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -224,6 +253,24 @@
 			productReference = 4431797321EC4F3200B56D55 /* StockWatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		443179A421ED4E0700B56D55 /* StockWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 443179AC21ED4E0800B56D55 /* Build configuration list for PBXNativeTarget "StockWatchUITests" */;
+			buildPhases = (
+				443179A121ED4E0700B56D55 /* Sources */,
+				443179A221ED4E0700B56D55 /* Frameworks */,
+				443179A321ED4E0700B56D55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				443179AB21ED4E0800B56D55 /* PBXTargetDependency */,
+			);
+			name = StockWatchUITests;
+			productName = StockWatchUITests;
+			productReference = 443179A521ED4E0700B56D55 /* StockWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -238,6 +285,10 @@
 						CreatedOnToolsVersion = 10.1;
 					};
 					4431797221EC4F3200B56D55 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 4431794021EA891000B56D55;
+					};
+					443179A421ED4E0700B56D55 = {
 						CreatedOnToolsVersion = 10.1;
 						TestTargetID = 4431794021EA891000B56D55;
 					};
@@ -258,6 +309,7 @@
 			targets = (
 				4431794021EA891000B56D55 /* StockWatch */,
 				4431797221EC4F3200B56D55 /* StockWatchTests */,
+				443179A421ED4E0700B56D55 /* StockWatchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,6 +334,13 @@
 				4431799521ED221E00B56D55 /* validMissingEntity.json in Resources */,
 				4431799A21ED2D7500B56D55 /* invalidPriceAsString.json in Resources */,
 				4431799321ED20CF00B56D55 /* validDataTest.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		443179A321ED4E0700B56D55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +373,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		443179A121ED4E0700B56D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443179A821ED4E0800B56D55 /* StockWatchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -321,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = 4431794021EA891000B56D55 /* StockWatch */;
 			targetProxy = 4431797821EC4F3200B56D55 /* PBXContainerItemProxy */;
+		};
+		443179AB21ED4E0800B56D55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4431794021EA891000B56D55 /* StockWatch */;
+			targetProxy = 443179AA21ED4E0800B56D55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -536,6 +608,44 @@
 			};
 			name = Release;
 		};
+		443179AD21ED4E0800B56D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN558ZNJ2W;
+				INFOPLIST_FILE = StockWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.jetstream.StockWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StockWatch;
+			};
+			name = Debug;
+		};
+		443179AE21ED4E0800B56D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QN558ZNJ2W;
+				INFOPLIST_FILE = StockWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.jetstream.StockWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StockWatch;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -562,6 +672,15 @@
 			buildConfigurations = (
 				4431797B21EC4F3200B56D55 /* Debug */,
 				4431797C21EC4F3200B56D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		443179AC21ED4E0800B56D55 /* Build configuration list for PBXNativeTarget "StockWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				443179AD21ED4E0800B56D55 /* Debug */,
+				443179AE21ED4E0800B56D55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
