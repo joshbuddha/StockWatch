@@ -67,7 +67,7 @@ class StockDetailViewModelTests: XCTestCase {
         let stockA = Stock(symbol: nil, latestPrice: 9.33, companyName: "safeway", primaryExchange: "street", sector: "biz", ytdChange: 999.0)
         let testViewModel = StockDetailViewModel(model: stockA)
         let symbolString = testViewModel.symbol
-        XCTAssertEqual(symbolString, "UAVS", "Confirm nil Stock symbol value will present not found string")
+        XCTAssertEqual(symbolString, "Symbol Not Found.", "Confirm nil Stock symbol value will present not found string")
         
     }
     

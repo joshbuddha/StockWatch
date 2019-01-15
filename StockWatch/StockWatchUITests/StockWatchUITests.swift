@@ -37,10 +37,5 @@ class StockWatchUITests: XCTestCase {
         app.buttons["Back"].tap()
         
     }
-    
-    func testAppLabel() {
-        let table = app.tables
-        XCTAssertNotEqual(table.cells.count, 0, "table in UI test has data")
-    }
 
 }
